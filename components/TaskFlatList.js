@@ -9,6 +9,7 @@ import {
     FlatList,
     View
 } from 'react-native';
+import { connect } from 'react-redux';
 
 export default class TaskFlatList extends Component {
 
@@ -36,11 +37,12 @@ export default class TaskFlatList extends Component {
     }
 
     render() {
+        const { data } = this.props;
         return (
             <FlatList
-                data={this.props.listData}
+                data={data}
                 extraData={this.props}
-                keyExtractor={(item, index) => index}
+                keyExtractor={(item, index) => index.toString()}
                 renderItem={this.renderItem}
             />
         );

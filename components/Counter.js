@@ -14,27 +14,19 @@ export default class Counter extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { number: props.number }
     }
 
     render() {
-
+        const { number, onAddPress, onSubPress } = this.props;
         return (
             <View style={styles.counterView} >
-                <Button onPress={() => this.setState({ number: this.state.number - 1 })} title="Sub" />
-                <Text>Counter: {this.state.number}</Text>
-                <Button onPress={() => this.setState({ number: this.state.number + 1 })} title="Add" />
-
+                <Button onPress={() => onSubPress(1)} title="Sub" />
+                <Text>Counter: {number}</Text>
+                <Button onPress={() => onAddPress(1)} title="Add" />
             </View>
         );
     }
 }
-
-
-Counter.defaultProps = {
-    number: 1
-}
-
 
 const styles = StyleSheet.create({
     counterView: {

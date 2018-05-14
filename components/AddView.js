@@ -13,13 +13,18 @@ import {
 export default class AddView extends Component {
 
     constructor(props) {
+        console.log(props);
         super(props);
-        this.state = { newTaskName: '' }
+        this.state = {
+            newTaskName: ''
+        }
     }
 
     onAddNewTask = () => {
-        this.props.onAddNewTask(this.state.newTaskName);
-        this.setState({ newTaskName: '' })
+        this.props.onAddNewTask(this.state.newTaskName)
+        this.setState({
+            newTaskName: ''
+        })
     }
 
     render() {
@@ -59,7 +64,7 @@ const styles = StyleSheet.create({
                 paddingTop: 20,
             },
             android: {
-                height: 74,
+                height: 120,
             }
         }),
         paddingHorizontal: 10,
